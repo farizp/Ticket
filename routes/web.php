@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TicketController;
+use App\Models\ticket;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+// Route::get('/ticket', function(){
+//     return view('ticket');
+// });
+
+Route::get('/ticket', [TicketController::class, 'index'])->name('ticket');
+Route::post('/post-ticket', [TicketController::class, 'store'])->name('post-ticket');
+
+Route::get('/login', [AdminController::class, 'index'])->name('login');
+Route::get('/post-login', [AdminController::class, 'authenticate'])->name('post-login');
