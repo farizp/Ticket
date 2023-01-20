@@ -20,10 +20,6 @@ Route::get('/', function () {
     return view('index');
 });
 
-// Route::get('/ticket', function(){
-//     return view('ticket');
-// });
-
 Route::get('/ticket', [TicketController::class, 'index'])->name('ticket');
 Route::post('/post-ticket', [TicketController::class, 'store'])->name('post-ticket');
 

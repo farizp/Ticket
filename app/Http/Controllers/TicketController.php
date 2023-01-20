@@ -6,6 +6,7 @@ use App\Models\ticket;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreticketRequest;
 use App\Http\Requests\UpdateticketRequest;
+use GuzzleHttp\Psr7\Request;
 
 class TicketController extends Controller
 {
@@ -43,10 +44,10 @@ class TicketController extends Controller
             'phone' => $request->input('phone'),
             'date' => $request->input('date'),
             'ticket' => $request->input('ticket'),
-            'price' => $request->input('price'),
             'number' => $request->input('number')
         ]);
 
+        // dd($request);
         return redirect()->route('ticket')->with('success','Success Buy');
     }
 
